@@ -19,7 +19,7 @@ res.json(req.body);
 app.put("/addresses/:id",(req,res)=>{
     const {id} = req.params;
     const userBody = req.body;
-    const updateAddress = address.map((item)=>(item.id === id ? item : userBody))
+    const updateAddress = address.map((item)=>(item.id === Number(id) ? userBody: item))
     res.status(200).json(updateAddress);
 
 })
